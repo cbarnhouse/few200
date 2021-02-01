@@ -1,0 +1,8 @@
+<div class="alert"
+     [ngClass]="{'alert-info': !item.purchased, 'alert-success': item.purchased}"
+     *ngFor="let item of items">
+  <button *ngIf="!item.purchased"
+          class="btn btn-sm btn-danger">X</button>
+  <span [ngClass]="{'purchased': item.purchased}">
+    {{ item.description }}</span>
+</div>

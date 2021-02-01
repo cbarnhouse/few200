@@ -1,0 +1,10 @@
+<header>
+  <h3>Your Shopping List</h3>
+</header>
+<section>
+  <app-shopping-entry (itemAdded)="onItemAdded($event)"></app-shopping-entry>
+</section>
+<section>
+  <app-shopping-list [items]="stuff$ | async"
+                     [caption]="caption"></app-shopping-list>
+</section>

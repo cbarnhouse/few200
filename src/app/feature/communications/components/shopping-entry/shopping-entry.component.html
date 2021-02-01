@@ -1,0 +1,17 @@
+<form [formGroup]="form"
+      (ngSubmit)="submit()">
+  <div class="form-group">
+    <label for="item">Item to Purchase:</label>
+    <input type="text"
+           name="item"
+           formControlName="item"
+           class="form-control">
+    <div class="alert alert-danger"
+         *ngIf="item.invalid && (item.touched || item.dirty)">
+      <p *ngIf="item.errors?.required">Field is required</p>
+      <p *ngIf="item.errors?.maxlength">Item has too many characters</p>
+    </div>
+  </div>
+  <button type="submit"
+          class="btn btn-primary">Add Item To Your List</button>
+</form>
