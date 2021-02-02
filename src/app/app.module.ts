@@ -12,6 +12,8 @@ import { StoreModule } from '@ngrx/store';
 import { reducers } from './reducer';
 import { StoreDevtools, StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { CountbyComponent } from './components/countby/countby.component';
+import { EffectsModule } from '@ngrx/effects';
+import { CounterEffects } from './effects/counter.effects';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { CountbyComponent } from './components/countby/countby.component';
     AppRoutingModule,
     CommunicationsModule,
     StoreModule.forRoot(reducers),
-    StoreDevtoolsModule.instrument()
+    StoreDevtoolsModule.instrument(),
+    EffectsModule.forRoot([CounterEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]
