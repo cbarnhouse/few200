@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { MastheadComponent } from './components/masthead/masthead.component';
 import { NavComponent } from './components/nav/nav.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { CounterComponent } from './components/counter/counter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MastheadComponent,
     NavComponent,
-    DashboardComponent
+    DashboardComponent,
+    CounterComponent
   ],
   imports: [
     BrowserModule,

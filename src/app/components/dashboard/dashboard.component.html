@@ -2,9 +2,9 @@
   <div class="card-body">
     <h5 class="card-title">Your Shopping List</h5>
     <h6 class="card-subtitle mb-2 text-muted">Overview of your shopping list</h6>
-    <p class="card-text">You have {​​​​{​​​​ (stuff$ | async)?.totalItems }​​​​}​​​​
-      items on your list ({​​​​{​​​​(stuff$ | async)?.purchasedItems}​​​​}​​​​ are
-      purchased, {​​​​{​​​​ (stuff$ | async)?.unpurchasedItems}​​​​}​​​​are not)</p>
+    <p class="card-text">You have {{ (stuff$ | async)?.totalItems }}
+      items on your list ({{(stuff$ | async)?.purchasedItems}} are
+      purchased, {{ (stuff$ | async)?.unpurchasedItems}}are not)</p>
     <a [routerLink]="['..','communications']"
        class="card-link">See your List</a>
   </div>

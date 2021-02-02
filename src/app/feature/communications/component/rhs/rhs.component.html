@@ -1,0 +1,7 @@
+<span>{{ message }}</span>
+<button (click)="doIt()"
+        class="btn btn-primary">Refresh</button>
+<div>
+  <span>{{ message$ | async }}</span>
+</div>
+<span *ngIf="isEven$ | async">It is even</span>
