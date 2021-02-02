@@ -8,6 +8,10 @@ import { MastheadComponent } from './components/masthead/masthead.component';
 import { NavComponent } from './components/nav/nav.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CounterComponent } from './components/counter/counter.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './reducer';
+import { StoreDevtools, StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { CountbyComponent } from './components/countby/countby.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +19,15 @@ import { CounterComponent } from './components/counter/counter.component';
     MastheadComponent,
     NavComponent,
     DashboardComponent,
-    CounterComponent
+    CounterComponent,
+    CountbyComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CommunicationsModule
+    CommunicationsModule,
+    StoreModule.forRoot(reducers),
+    StoreDevtoolsModule.instrument()
   ],
   providers: [],
   bootstrap: [AppComponent]
