@@ -1,17 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { SongSummaryModel } from '../../models/song-summary-item';
 
 @Component({
   selector: 'app-song-summary-list',
   templateUrl: './song-summary-list.component.html',
-  styleUrls: ['./song-summary-list.component.scss']
+  styleUrls: ['./song-summary-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SongSummaryListComponent implements OnInit {
 
-  list: SongSummaryModel[] = [
-    { id: '1', title: "Do you dig u?", artist: "Q-Tip", album: "Kernel and whatever" },
-    { id: '2', title: "Jaws Theme", artist: "John Williams" }
-  ]
+  @Input() list: SongSummaryModel[] = [];
   constructor() { }
 
   ngOnInit(): void {

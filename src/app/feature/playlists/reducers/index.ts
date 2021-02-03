@@ -1,7 +1,7 @@
 import * as fromSongs from './songs.reducer'
-import { ActionReducerMap } from '@ngrx/store'
+import { ActionReducerMap, createSelector, createFeatureSelector } from '@ngrx/store'
 import { PlaylistsComponent } from '../playlists.component'
-
+import * as models from '../models';
 
 export const featureName = "playlistFeature";
 
@@ -12,3 +12,20 @@ export interface PlaylistState {
 export const reducers: ActionReducerMap<PlaylistState> = {
   songs: fromSongs.reducer
 }
+
+// feature selector
+const selectFeature = createFeatureSelector<PlaylistState>(featureName);
+
+// branch selector (songs in this ex)
+const selectSongsBranch = createSelector(
+  selectFeature,
+  f => f.songs
+)
+
+// helpers
+const { selectAll: selectSongArray } = fromSongs.adapter.getSelectors(selectSongsBranch);
+
+export const selectSongListModel = createSelector(
+  selectSongArray,
+  songs => songs as models.SongSummaryModel[]
+)

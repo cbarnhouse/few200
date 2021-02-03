@@ -6,14 +6,17 @@ import { SongListComponent } from './containers/song-list/song-list.component';
 import { SongSummaryListComponent } from './components/song-summary-list/song-summary-list.component';
 import { StoreModule } from '@ngrx/store';
 import { featureName, reducers } from './reducers';
+import { SongEntryFormComponent } from './components/song-entry-form/song-entry-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
 @NgModule({
-  declarations: [PlaylistsComponent, SongEntryComponent, SongListComponent, SongSummaryListComponent],
+  declarations: [PlaylistsComponent, SongEntryComponent, SongListComponent, SongSummaryListComponent, SongEntryFormComponent],
   imports: [
     CommonModule,
-    StoreModule.forFeature(featureName, reducers)
+    StoreModule.forFeature(featureName, reducers),
+    ReactiveFormsModule
   ],
   exports: [PlaylistsComponent]
 })
