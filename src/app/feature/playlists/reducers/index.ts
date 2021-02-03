@@ -27,5 +27,10 @@ const { selectAll: selectSongArray } = fromSongs.adapter.getSelectors(selectSong
 
 export const selectSongListModel = createSelector(
   selectSongArray,
-  songs => songs as models.SongSummaryModel[]
+  songs => songs.map(song => {
+    return {
+      ...song,
+      isSaved: !song.id.startsWith('TEMP')
+    } as models.SongSummaryModel;
+  })
 )

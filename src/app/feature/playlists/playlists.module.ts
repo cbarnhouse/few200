@@ -8,6 +8,11 @@ import { StoreModule } from '@ngrx/store';
 import { featureName, reducers } from './reducers';
 import { SongEntryFormComponent } from './components/song-entry-form/song-entry-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { EffectsModule } from '@ngrx/effects';
+import { SongEffects } from './effects/song.effects';
+import { AppEffects } from './effects/app.effects';
+import { PlaylistDataService } from './services/playlist-data.service';
 
 
 
@@ -16,8 +21,11 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     StoreModule.forFeature(featureName, reducers),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    EffectsModule.forFeature([AppEffects, SongEffects])
   ],
-  exports: [PlaylistsComponent]
+  exports: [PlaylistsComponent],
+  providers: [PlaylistDataService]
 })
 export class PlaylistsModule { }

@@ -3,4 +3,5 @@ export interface SongSummaryModel {
   title: string;
   artist: string;
   album?: string;
+  isSaved: boolean
 }

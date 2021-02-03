@@ -6,5 +6,9 @@
     <p *ngIf="song.album"
        class="card-text">{{song.title}} is on the album {{song.album}} </p>
     <p *ngIf="!song.album"><em>Unknown Album</em></p>
+    <div *ngIf="!song.isSaved"
+         class="alert alert-info">
+      <p><em>Saving your song...</em></p>
+    </div>
   </div>
 </div>
