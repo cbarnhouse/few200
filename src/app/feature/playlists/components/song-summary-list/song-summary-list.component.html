@@ -1,0 +1,10 @@
+<div class="card"
+     *ngFor="let song of list">
+  <div class="card-body">
+    <h5 class="card-title">{{song.title}} by {{song.artist}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Song: {{song.title}}</h6>
+    <p *ngIf="song.album"
+       class="card-text">{{song.title}} is on the album {{song.album}} </p>
+    <p *ngIf="!song.album"><em>Unknown Album</em></p>
+  </div>
+</div>

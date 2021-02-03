@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ShoppingDataService } from 'src/app/feature/communications/services/shopping-data.service';
 import { map } from 'rxjs/operators';
-import { ShoppingDashboard } from 'src/app/models';
+import { CounterDashboard, ShoppingDashboard } from 'src/app/models';
 import { Observable } from 'rxjs';
+import { AppState, selectCounterDashboard } from 'src/app/reducer';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,10 +13,15 @@ import { Observable } from 'rxjs';
 })
 export class DashboardComponent implements OnInit {
 
+  counterStuff$: Observable<CounterDashboard>
   stuff$: Observable<ShoppingDashboard>;
-  constructor(private shoppingService: ShoppingDataService) { }
+  constructor(
+    private shoppingService: ShoppingDataService,
+    private store: Store<AppState>) { }
 
   ngOnInit(): void {
+
+    this.counterStuff$ = this.store.select(selectCounterDashboard);
     this.stuff$ = this.shoppingService.getObservable()
       .pipe(
         map(items => {

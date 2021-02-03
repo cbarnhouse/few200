@@ -9,3 +9,14 @@
        class="card-link">See your List</a>
   </div>
 </div>
+
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Your Redux Counter</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Overview of your ability to count</h6>
+    <p class="card-text">You are at {{ (counterStuff$ | async)?.current }} and like to count
+      by {{ (counterStuff$ | async)?.by }}</p>
+    <a [routerLink]="['..','counter']"
+       class="card-link">Do some more counting!</a>
+  </div>
+</div>

@@ -14,6 +14,7 @@ import { StoreDevtools, StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { CountbyComponent } from './components/countby/countby.component';
 import { EffectsModule } from '@ngrx/effects';
 import { CounterEffects } from './effects/counter.effects';
+import { PlaylistsModule } from './feature/playlists/playlists.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CounterEffects } from './effects/counter.effects';
     CommunicationsModule,
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument(),
-    EffectsModule.forRoot([CounterEffects])
+    EffectsModule.forRoot([CounterEffects]),
+    PlaylistsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
