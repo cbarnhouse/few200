@@ -1,9 +1,11 @@
 import * as fromCounter from './counter.reducer';
 import { createSelector } from '@ngrx/store';
 import * as models from '../models/index';
+import * as fromErrors from './errors.reducer'
 
 export interface AppState {
   counter: fromCounter.CounterState;
+  errors: fromErrors.ErrorState;
 }
 
 export const reducers = {
@@ -18,6 +20,10 @@ export const reducers = {
 // 2. A selector per property on the state (per branch)
 function selectCounterBranch(state: AppState): fromCounter.CounterState {
   return state.counter;
+}
+
+function selectErrorsBranch(state: AppState): fromErrors.ErrorState {
+  return state.errors;
 }
 // 3. Any helpers you might need
 // function selectCountCurrent(state: AppState): number {
@@ -68,5 +74,15 @@ export const selectCounterDashboard = createSelector(
   selectCounterBy,
   (current, by) => ({ by, current } as models.CounterDashboard)
 );
+
+export const selectHasError = createSelector(
+  selectErrorsBranch,
+  b => b.hasError
+)
+
+export const selectErrorMessage = createSelector(
+  selectErrorsBranch,
+  b => b.message
+)
 
 
